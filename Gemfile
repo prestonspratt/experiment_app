@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.10'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
-gem 'simple-form'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
@@ -30,6 +30,7 @@ group :test do
   gem 'rb-fchange', '0.0.5' #windows
   gem 'rb-notifu', '0.0.4' #windows
   gem 'win32console', '1.3.0' #windows
+  gem 'factory_girl_rails', '4.1.0'
 end
 
 group :production do
