@@ -1,4 +1,7 @@
 ExperimentApp::Application.routes.draw do
+  resources :experiments
+
+
   resources :users do
     member do
       get :following, :followers
