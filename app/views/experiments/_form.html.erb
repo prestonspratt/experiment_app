@@ -1,19 +1,24 @@
-<%= simple_form_for(@experiment) do |f| %>
-  <%= f.error_notification %>
+<% provide(:title, 'Create Experiment') %>
 
-  <div class="form-inputs">
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@experiment) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.input :title %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
 
-    <%= f.input :tagline %>
+      <%= f.label :tagline %>
+      <%= f.text_field :tagline %>
 
-    <%= f.input :description %>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
 
-    <%= f.input :purpose %>
-
+      <%= f.label :purpose %>
+      <%= f.text_field :purpose %>
+      
+      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+    <% end %>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>

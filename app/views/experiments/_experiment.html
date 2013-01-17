@@ -1,0 +1,12 @@
+<li>
+	<h2><%= experiment.title %></h2>
+    <p><%= experiment.tagline %></p>
+    <p><%= experiment.description %></p>
+    <p><%= experiment.purpose %></p>
+    <p><%= link_to 'Show', experiment %> 
+    
+    <% if current_user.admin? %>
+      <%= link_to 'Edit', edit_experiment_path(experiment) %>
+      <%= link_to 'Destroy', experiment, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+</li>

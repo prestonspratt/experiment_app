@@ -42,14 +42,12 @@ class ExperimentsController < ApplicationController
   def create
     @experiment = Experiment.new(params[:experiment])
 
-    respond_to do |format|
-      if @experiment.save
-        format.html { redirect_to @experiment, notice: 'Experiment was successfully created.' }
-        format.json { render json: @experiment, status: :created, location: @experiment }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @experiment.errors, status: :unprocessable_entity }
-      end
+    if @experiment.save
+      redirect_to @experiment
+      flash[:success] = "Experiment Created!"
+
+    else
+      render action: "new"
     end
   end
 
