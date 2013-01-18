@@ -17,7 +17,11 @@
       <%= f.label :purpose %>
       <%= f.text_field :purpose %>
       
-      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+      <% if @experiment.title? %>
+        <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+        <% else %>
+        <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+      <% end %>
     <% end %>
   </div>
 </div>
