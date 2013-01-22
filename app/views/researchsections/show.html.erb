@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @researchsection.content %>
+</p>
+
+<p>
+  <b>Videolink:</b>
+  <%= @researchsection.videolink %>
+</p>
+
+<p>
+  <b>Experiment:</b>
+  <%= @researchsection.experiment_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_researchsection_path(@researchsection) %> |
+<%= link_to 'Back', researchsections_path %>

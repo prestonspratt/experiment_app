@@ -1,4 +1,7 @@
 ExperimentApp::Application.routes.draw do
+  resources :researchsections
+
+
   resources :experiments
 
   resources :users do
