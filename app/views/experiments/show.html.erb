@@ -13,13 +13,23 @@
   <%= @experiment.purpose %>
 </p>
 
-<%= link_to 'Edit', edit_experiment_path(@experiment) %>
+<% if current_user.admin?  %>
+    <%= link_to 'Edit', edit_experiment_path(@experiment) %> | 
+    <%= link_to "Delete", @experiment, method: :delete,
+                                  data: { confirm: "You sure?" } %> :: Experiment
+<% end %>
+
+
 
 <% if @experiment.researchsection %>
 	<h2>Research</h2>
 		<p> <%= @experiment.researchsection.content %> </p>
 		<p><%= @experiment.researchsection.videolink %> </p>
-<% else %> |
+  <% if current_user.admin?  %>
+    <%= link_to 'Edit', edit_researchsection_path(@experiment.researchsection) %> | 
+    <%= link_to "Delete", @experiment.researchsection, method: :delete,
+                                  data: { confirm: "You sure?" } %> :: Research Section
+  <% end %>
 <% end %>
 
-<%= link_to 'Back', experiments_path %>
+</br> <%= link_to 'Back', experiments_path %>
