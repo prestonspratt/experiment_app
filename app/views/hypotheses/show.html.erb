@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @hypothesis.content %>
+</p>
+
+<p>
+  <b>Experiment:</b>
+  <%= @hypothesis.experiment_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_hypothesis_path(@hypothesis) %> |
+<%= link_to 'Back', hypotheses_path %>

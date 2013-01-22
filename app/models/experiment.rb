@@ -14,6 +14,7 @@
 class Experiment < ActiveRecord::Base
   attr_accessible :description, :purpose, :title, :tagline
   has_one :researchsection, dependent: :destroy
+  has_one :hypothesis, dependent: :destroy
   
   validates :description, presence: true
   validates :purpose, presence: true
