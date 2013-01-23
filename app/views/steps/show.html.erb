@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @step.content %>
+</p>
+
+<p>
+  <b>Videolink:</b>
+  <%= @step.videolink %>
+</p>
+
+<p>
+  <b>Procedure:</b>
+  <%= @step.procedure_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', steps_path %>

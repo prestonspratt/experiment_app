@@ -3,16 +3,24 @@
     <% if @experiment.procedure %>
       <h2>Procedure</h2>
       <p> <%= @experiment.procedure.directions %> </p>
-      <p>STEP BY STEP</p>
+      <% @experiment.procedure.steps.each do |step| %>
+      <p><%= step.content %></p>
+      <p><%= step.videolink %>
+      <% if current_user.admin?  %>
+        <%= link_to 'Edit', edit_step_path(step) %> | 
+        <%= link_to 'Destroy', step, method: :delete, data: { confirm: 'Are you sure?' } %> This Step</p>
+      <% end %>
+    <% end %>
       
       <% if current_user.admin?  %>
+        <p><%= link_to 'New Step', new_step_path %></p>
         <%= link_to 'Edit', edit_procedure_path(@experiment.procedure) %> | 
         <%= link_to "Delete", @experiment.procedure, method: :delete,
                                   data: { confirm: "You sure?" } %> :: Procedure Section
       <% end %>
     <% else %>
       <% if current_user.admin?  %>
-      <p><%= link_to 'New Procedure Section', new_procedure_path %></p>
+        <p><%= link_to 'New Procedure Section', new_procedure_path %></p>
       <% end %>
     <% end %>
   </div>
