@@ -1,5 +1,6 @@
 <% provide(:title, @experiment.title) %>
-
+<div class="row">
+  <div class="span8">
 <h1><%= @experiment.title %></h1>
 <i><%= @experiment.tagline %></i>
 
@@ -18,37 +19,11 @@
     <%= link_to "Delete", @experiment, method: :delete,
                                   data: { confirm: "You sure?" } %> :: Experiment
 <% end %>
+  </div>
+</div>
 
+<%= render 'shared/research' %>
 
-
-<% if @experiment.researchsection %>
-	<h2>Research</h2>
-		<p> <%= @experiment.researchsection.content %> </p>
-		<p><%= raw(youtube_embed(@experiment.researchsection.videolink)) %></p>
-  <% if current_user.admin?  %>
-    <%= link_to 'Edit', edit_researchsection_path(@experiment.researchsection) %> | 
-    <%= link_to "Delete", @experiment.researchsection, method: :delete,
-                                  data: { confirm: "You sure?" } %> :: Research Section
-  <% end %>
-<% else %>
-  <% if current_user.admin?  %>
-    <p><%= link_to 'New Research Section', new_researchsection_path %></p>
-  <% end %>
-<% end %>
-
-<% if @experiment.hypothesis %>
-  <h2>Hypothesis</h2>
-    <p> <%= @experiment.hypothesis.content %> </p>
-    <p>USER ANSWER HERE</p>
-  <% if current_user.admin?  %>
-    <%= link_to 'Edit', edit_hypothesis_path(@experiment.hypothesis) %> | 
-    <%= link_to "Delete", @experiment.hypothesis, method: :delete,
-                                  data: { confirm: "You sure?" } %> :: Hypothesis Section
-  <% end %>
-<% else %>
-  <% if current_user.admin?  %>
-    <p><%= link_to 'New Hypothesis Section', new_hypothesis_path %></p>
-  <% end %>
-<% end %>
+<%= render 'shared/hypothesis' %>
 
 </br> <%= link_to 'Back', experiments_path %>

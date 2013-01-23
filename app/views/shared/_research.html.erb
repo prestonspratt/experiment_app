@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="span8">
+    <% if @experiment.researchsection %>
+	   <h2>Research</h2>
+		    <p> <%= @experiment.researchsection.content %> </p>
+		    <p><%= raw(youtube_embed(@experiment.researchsection.videolink)) %></p>
+      <% if current_user.admin?  %>
+        <%= link_to 'Edit', edit_researchsection_path(@experiment.researchsection) %> | 
+        <%= link_to "Delete", @experiment.researchsection, method: :delete,
+                              data: { confirm: "You sure?" } %> :: Research Section
+      <% end %>
+    <% else %>
+      <% if current_user.admin?  %>
+        <p><%= link_to 'New Research Section', new_researchsection_path %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

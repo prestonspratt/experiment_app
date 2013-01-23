@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="span8">
+<% if @experiment.hypothesis %>
+  <h2>Hypothesis</h2>
+    <p> <%= @experiment.hypothesis.content %> </p>
+    <p>USER ANSWER HERE</p>
+  <% if current_user.admin?  %>
+    <%= link_to 'Edit', edit_hypothesis_path(@experiment.hypothesis) %> | 
+    <%= link_to "Delete", @experiment.hypothesis, method: :delete,
+                                  data: { confirm: "You sure?" } %> :: Hypothesis Section
+  <% end %>
+<% else %>
+  <% if current_user.admin?  %>
+    <p><%= link_to 'New Hypothesis Section', new_hypothesis_path %></p>
+  <% end %>
+<% end %>
+  </div>
+</div>
