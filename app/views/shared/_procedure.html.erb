@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="span8">
+    <% if @experiment.procedure %>
+      <h2>Procedure</h2>
+      <p> <%= @experiment.procedure.directions %> </p>
+      <p>STEP BY STEP</p>
+      
+      <% if current_user.admin?  %>
+        <%= link_to 'Edit', edit_procedure_path(@experiment.procedure) %> | 
+        <%= link_to "Delete", @experiment.procedure, method: :delete,
+                                  data: { confirm: "You sure?" } %> :: Procedure Section
+      <% end %>
+    <% else %>
+      <% if current_user.admin?  %>
+      <p><%= link_to 'New Procedure Section', new_procedure_path %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
