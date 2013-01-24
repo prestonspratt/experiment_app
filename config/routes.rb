@@ -1,4 +1,7 @@
 ExperimentApp::Application.routes.draw do
+  resources :analyses
+
+
   resources :steps
 
 

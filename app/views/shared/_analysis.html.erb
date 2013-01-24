@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="span8">
+<% if @experiment.analysis %>
+  <h2>Analysis</h2>
+    <p> <%= @experiment.analysis.content %> </p>
+    <p>USER QUIZ Here</p>
+  <% if current_user.admin?  %>
+    <%= link_to 'Edit', edit_analysis_path(@experiment.analysis) %> | 
+    <%= link_to "Delete", @experiment.analysis, method: :delete,
+                                  data: { confirm: "Delete Analysis?" } %> :: Analysis Section
+  <% end %>
+<% else %>
+  <% if current_user.admin?  %>
+    <p><%= link_to 'New Analysis Section', new_analysis_path %></p>
+  <% end %>
+<% end %>
+  </div>
+</div>

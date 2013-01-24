@@ -16,6 +16,7 @@ class Experiment < ActiveRecord::Base
   has_one :researchsection, dependent: :destroy
   has_one :hypothesis, dependent: :destroy
   has_one :procedure, dependent: :destroy
+  has_one :analysis, dependent: :destroy
   
   validates :description, presence: true
   validates :purpose, presence: true
